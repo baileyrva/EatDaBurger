@@ -1,24 +1,31 @@
 {
   "name": "eatdaburger",
   "version": "1.0.0",
-  "description": "A burger eating application that allows the user to view and store different type of burgers. ",
-  "main": "node server.js",
+  "description": "a burger ordering application that allows for devouring or deleting ",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baileyrva/EatDaBurger.git"
   },
   "keywords": [
     "burger",
     "lunch",
-    "sandwiches"
+    "eating",
+    "ordering"
   ],
   "author": "baileyrva",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/baileyrva/EatDaBurger/issues"
+  },
+  "homepage": "https://github.com/baileyrva/EatDaBurger#readme",
   "dependencies": {
-    "config.json": "0.0.4",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
-    "mysql": "^2.18.1",
-    "mysql2": "^2.1.0",
-    "sequelize": "^5.21.4"
+    "mysql": "^2.18.1"
   }
 }

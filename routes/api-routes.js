@@ -1,19 +1,31 @@
-let db = require("../models");
+var db = require("../models");
+
+// Routes
+// =============================================================
 
 module.exports = function(app) {
+  // Create all our routes and set up logic within those routes where required.
   app.get("/", function(req, res) {
-    db.burger.selectAll({ raw: true }).then(function(data) {
-      let hbsObject = {
+    db.burger.findAll({ raw: true }).then(function(data) {
+      // let burgerarray = [];
+      // for (let index = 0; index < data.length; index++) {
+      //     // console.log(data[index].dataValues);
+      //     console.log("----------------");
+      //     burgerarray.push(data[index].dataValues)
+      // }
+      // console.log(burgerarray)
+      var hbsObject = {
         burger: data
       };
       res.render("index", hbsObject);
     });
   });
 
+  //route to insert a new burger...this route is working
   app.post("/api/burgers", function(req, res) {
     console.log(req.body);
     db.burger
-      .insertOne({
+      .create({
         burger_name: req.body.burger_name,
         devoured: req.body.devoured
       })
@@ -23,6 +35,7 @@ module.exports = function(app) {
   });
 
   app.put("/api/burgers/:id", function(req, res) {
+    // console.log(req.body.id)
     db.burger
       .update(
         {
