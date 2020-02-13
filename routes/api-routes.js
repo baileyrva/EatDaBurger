@@ -1,18 +1,35 @@
 var db = require("../config/connection");
 
-// Routes
-// =============================================================
+var burger = require("../models/burger");
+
 
 module.exports = function(app) {
   // Create all our routes and set up logic within those routes where required.
   app.get("/", function(req, res) {
-    db.burger.findAll({ raw: true }).then(function(data) {
+    burger.findAll({ raw: true }).then(function(data) {
       var hbsObject = {
-        burger: data
+        burgers: data
       };
       res.render("index", hbsObject);
     });
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   //route to insert a new burger...this route is working
   app.post("/api/burgers", function(req, res) {
