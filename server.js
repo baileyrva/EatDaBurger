@@ -22,13 +22,12 @@ app.set("view engine", "handlebars");
 
 // Routes
 // =============================================================
-require("./routes/api-routes")(app);
-// require("./routes/html-routes")(app);
+let routes = require("./controllers/burger_controller");
+
+app.use(routes);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({ force: false }).then(function() {
-  app.listen(PORT, function() {
-    console.log("App listening on PORT http://localhost:" + PORT);
-  });
+app.listen(PORT, function() {
+  console.log("App listening on PORT http://localhost:" + PORT);
 });
