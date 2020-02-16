@@ -1,11 +1,11 @@
-var express = require("express");
+let express = require("express");
 
 
-var app = express();
-var PORT = process.env.PORT || 3000;
+let app = express();
+let PORT = process.env.PORT || 3000;
 
 // Requiring our models for syncing
-var db = require("./models");
+let db = require("./models");
 
 // Sets up the Express app 
 app.use(express.urlencoded({ extended: true }));
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Handlebars.
-var exphbs = require("express-handlebars");
+let exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
