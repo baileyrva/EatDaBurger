@@ -1,7 +1,6 @@
 var express = require("express");
 
-// Sets up the Express App
-// =============================================================
+
 var app = express();
 var PORT = process.env.PORT || 3000;
 
@@ -21,8 +20,7 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Routes
-// =============================================================
+
 require("./routes/api-routes")(app);
 
 
